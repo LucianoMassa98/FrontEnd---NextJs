@@ -1,0 +1,65 @@
+@import 'vars';
+
+  .Filter {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: $--gris;
+	height: 60px;
+	position: fixed;
+	width: 100%;
+	padding: 0 24px;
+	top: 90px;
+  }
+  .filter-flechita {
+	width: 100%;
+	height: 50px;
+  }
+  .filterbar-left {
+	//display: flex;
+  }
+  .filterbar-right {
+	/*margin-top: 20px;*/
+  }
+  
+  .input-filter{
+    border-radius:8px;
+    padding: 8pX
+  }
+
+  .input-filter:hover {
+	cursor:pointer;
+  }
+  .navbar-shopping-cart {
+	display: flex;
+	position: relative;
+   padding: 20px;
+  }
+  
+  
+
+  @media (max-width: 640px) {
+	.menu {
+	  display: block;
+	  padding: 12px;
+	  background: $--white;
+	  border-radius: 20%;
+	  margin-left: 5px;
+	  border-bottom-left-radius: 80%;
+	  border-right: 6px solid $--principal-1;
+	  border-top: 6px solid $--principal-1;
+	  
+	}
+	.navbar-left ul{
+	  display: none;
+	}
+	.navbar-email {
+	  display: none;
+	}
+	
+  }
+  @media (max-width: 730px) {
+	.navbar-user {
+	  display: none;
+	}
+  }

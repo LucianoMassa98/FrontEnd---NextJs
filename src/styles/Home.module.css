@@ -2,6 +2,12 @@
   padding: 0 2rem;
 }
 
+.Home{
+  display: flex;
+  flex-direction: column;
+  top: 180px;
+}
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;

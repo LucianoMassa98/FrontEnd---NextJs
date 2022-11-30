@@ -1,0 +1,41 @@
+@import 'vars';
+
+.desktop-menu {
+	width: 100px;
+	height: auto;
+	border: 1px solid $--gris;
+	border-radius: 6px;
+	padding: 20px 20px 0 20px;
+	position: absolute;
+	top: 90px;
+	right: 0px;
+	background: $--white;
+  }
+  .desktop-menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: self-start;
+  }
+  .desktop-menu ul li {
+	text-align: end;
+  }
+  .desktop-menu ul li {
+	font-weight: bold;
+  }
+  .desktop-menu ul li:last-child {
+	padding-top: 20px;
+	border-top: 1px solid $--principal-2;
+  }
+  .desktop-menu ul li:last-child a {
+	color: $--principal-1;
+	font-size: $--sm;
+  }
+  .desktop-menu ul li a {
+	color: $--black;
+	text-decoration: none;
+	margin-bottom: 20px;
+	display: inline-block;
+  }

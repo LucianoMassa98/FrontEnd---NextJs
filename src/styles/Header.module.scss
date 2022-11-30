@@ -1,0 +1,125 @@
+@import 'vars';
+
+  .Nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $--secundario-3;
+	height: 90px;
+	position: fixed;
+	width: 100%;
+	padding: 0 24px;
+	top: 0px;
+  }
+  .menu {
+	display: none;
+  }
+  .nav-logo {
+	width: 100px;
+	height: 90px;
+  }
+  .navbar-left ul,
+  .navbar-right ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	height: 60px;
+  }
+  .navbar-left {
+	display: flex;
+  }
+  .navbar-right {
+	/*margin-top: 20px;*/
+  }
+  .navbar-left ul {
+	margin-left: 12px;
+	margin-top: 20px;
+  }
+  .navbar-left ul li a,
+  .navbar-right ul li a {
+	text-decoration: none;
+	color: $--white;
+	
+	padding: 8px;
+	border-radius: 8px;
+  }
+  .navbar-left ul li a:hover,
+  .navbar-right ul li a:hover {
+	border: 1px solid $--secundario-1;
+	color: $--secundario-1;
+  }
+  .navbar-user {
+	color: $--white;
+	font-size: $--sm;
+	margin-right: 12px;
+	align-items: center;
+	justify-content: space-between;
+	display: flex;
+	
+  }
+  .navbar-user img{
+   border-radius: 50%;
+   height: 50px;
+   width: 50px;
+   margin-left: 12px;
+  }
+
+  .navbar-user:hover {
+	cursor:pointer;
+  }
+  .navbar-shopping-cart {
+	display: flex;
+	position: relative;
+   padding: 20px;
+  }
+  .navbar-shopping-cart:hover {
+	cursor: pointer;
+  
+  border-bottom: 4px solid $--principal-1;
+  }
+  .navbar-shopping-cart img {
+	height: 40px;
+	width: 40px;
+ 
+  }
+  .navbar-shopping-cart div {
+	width: 18px;
+	height: 18px;
+	color: $--white;
+	background-color: $--secundario-1;
+	border-radius: 50%;
+	padding: 2px;
+	font-size: $--sm;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	border-right: 2px solid $--white;
+	border-top: 2px solid $--white;
+  }
+  @media (max-width: 640px) {
+	.menu {
+	  display: block;
+	  padding: 12px;
+	  background: $--white;
+	  border-radius: 20%;
+	  margin-left: 5px;
+	  border-bottom-left-radius: 80%;
+	  border-right: 6px solid $--principal-1;
+	  border-top: 6px solid $--principal-1;
+	  
+	}
+	.navbar-left ul{
+	  display: none;
+	}
+	.navbar-email {
+	  display: none;
+	}
+	
+  }
+  @media (max-width: 730px) {
+	.navbar-user {
+	  display: none;
+	}
+  }
