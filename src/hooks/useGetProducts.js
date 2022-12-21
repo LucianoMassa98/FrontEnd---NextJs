@@ -10,7 +10,7 @@ const useGetProducts = (API)=>{
 		const getData = async () => {
 		const response = await axios.get(API);
 		setProducts(response.data);
-		console.log(response);
+		//console.log(response.data);
 	}
     return products;
 }

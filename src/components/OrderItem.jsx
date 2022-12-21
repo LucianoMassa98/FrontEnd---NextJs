@@ -6,7 +6,7 @@ import styles from '@styles/OrderItem.module.scss';
 const OrderItem = ({product}) => {
 const {removeToCart} = useContext(AppContext);
 const handleRemove = product => {
-	removeFromCart(product);
+	removeToCart(product);
 }
 	return (
 		<div className={styles.OrderItem}>

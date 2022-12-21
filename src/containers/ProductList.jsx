@@ -1,27 +1,28 @@
-import React from 'react';
+import React, {useContext} from 'react';
+
+import AppContext from '@context/AppContext';
 import ProductItem from '@components/ProductItem';
-import useGetProducts from '@hooks/useGetProducts';
 import styles from '@styles/ProductList.module.scss';
 const API = 'https://api.escuelajs.co/api/v1/products'; 
 
 const ProductList = () => {
-
-	const products = useGetProducts(API);
-	console.log("hola");
+	const {state} = useContext(AppContext);
+	
 	return (
 		<section className={styles['main-container']}>
 			
 			<div className={styles.ProductList}>
-				{products.map((product) =>{
+				{ 
+				state.list[0]?.map((product) =>{
+				
 					if(product.images.length > 0 && product.images[0] !== ''){
 						return (
 							<ProductItem product={product} key={product.id}/>
 						)
-					}else{
-						console.log("no cumple");
 					}
 				} 
-				)}
+				)
+				}
 				
 			</div>
 		</section>

@@ -9,49 +9,29 @@ import  styles from '@styles/Filter.module.scss';
 
 const API = 'https://api.escuelajs.co/api/v1/products'; 
 
-const Filter = () => {
+const ProductForm = () => {
 	
 	const { addListProducts } = useContext(AppContext);
-	
-
-	
-	const products = useGetProducts(API);
-	
+	const [toggle,setToggle] = useState(false);
 	const handleToggle=()=>{
-		addListProducts(products);
+		setToggle(!toggle);
 	}
-	
-	const searchForName = (dat) =>{
-		let array = [];
-		let findProduct = dat.toLowerCase();
-		for(let i =0; i<products.length;i++){
-			let nomProduct = products[i].title.toLowerCase();
-			if(nomProduct.indexOf(findProduct)!==-1){
-				array.push( products[i]);
-			}
-		
-		}
-		addListProducts(array);
-	}
-
+	const products = useGetProducts(API);
+	addListProducts(products);
 	
 	return (
 		<nav className={styles.Filter}>
 			
 			<div className={styles['filterbar-left']}>
-				<p className={styles['filterbar-menu']} onClick={handleToggle}>Filtrar</p>
-
+				
 				<Image src={flechita} alt="flechita" className={styles['filter-flechita']} />
-					
+				<p className={styles['filterbar-menu']} onClick={handleToggle}>
+						Filtrar
+					</p>
+					{toggle ? <Menu />: null}
 			</div>
 			<div className={styles['filterbar-right']}>
-			<form>
-				<input type="text"
-				 className={styles['input-filter']}
-				 autoComplete='false'
-				 placeholder='Buscar producto...'
-				 onChange={ev =>searchForName(ev.target.value)} />
-			</form>
+			
 			</div>
 
 		</nav>

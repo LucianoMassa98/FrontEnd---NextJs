@@ -2,6 +2,8 @@ import { useState } from "react";
 
 const initialState = {
 	cart: [],
+	list:[]
+	
 }
 
 const useInitialState = () => {
@@ -20,11 +22,26 @@ const useInitialState = () => {
 			cart: state.cart.filter(items => items.id != payload.id)
 		});
 	}
+	const addListProducts = (payload) => {
+		
+		setState({
+			...state,
+			list: [payload]
+		});
+	};
+	const removeListProducts =(payload)=>{
+		setState({
+			...state,
+			list: state.list.filter(items => items.id != payload.id)
+		});
+	}
 
 	return {
 		state,
 		addToCart,
-		removeToCart
+		removeToCart,
+		addListProducts,
+		removeListProducts
 	}
 }
 

@@ -9,7 +9,8 @@ export default function Home() {
           </div>
          
          <div className={styles['home-product-list']}>
-          <ProductList/> </div>
+          <ProductList/>
+           </div>
         
         </div>
    

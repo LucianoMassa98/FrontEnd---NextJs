@@ -18,7 +18,15 @@ const Checkout = () => {
 					</div>
 				</div>
 				<OrderItem />
+				<form className={styles.formCheckout}>
+				<input type="text" name='cliente' placeholder='Buscar cliente...' />
+				<button className={styles['button-secondary']} onClick={console.log('holis')}>Agregar </button>
+				<input type="date" name='fecha' />
+				<button className={styles['button-principal']} onClick={console.log('holis2')}>Finalizar venta </button>
+
+			</form>
 			</div>
+			
 		</div>
 	);
 }
