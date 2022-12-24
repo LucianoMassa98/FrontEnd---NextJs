@@ -12,13 +12,15 @@ const Header = () => {
 
 	const [toggle,setToggle] = useState(false);
 	const [toggleOrders, setToggleOrders] = useState(false);
+	
 	const {state}=useContext(AppContext);
 	const handleToggle=()=>{
 		setToggle(!toggle);
 	}
+
 	return (
 		<nav className={styles.Nav}>
-			<Image src={menu} alt="menu" className={styles.menu}/>
+			<Image src={menu} alt="menu" className={styles.menu} onClick={()=>setToggle(!toggle)}/>
 			<div className={styles['navbar-left']}>
 				<Link href="/">
 				<Image src={logo} alt="logo" className={styles['nav-logo']} />

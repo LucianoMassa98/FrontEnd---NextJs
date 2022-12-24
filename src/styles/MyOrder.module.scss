@@ -30,7 +30,7 @@
 	grid-template-columns: auto 1fr;
 	gap: 16px;
 	align-items: center;
-	background-color: $--principal-2;
+	background-color: $--secundario-1;
 	color: $--white;
 	margin-bottom: 24px;
 	border-radius: 8px;
@@ -60,9 +60,45 @@
 	font-weight: bold;
 	height: 50px;
 	padding: 12px;
+	margin-top: 12px;
 }
 @media (max-width: 640px) {
 	.MyOrder {
 		width: 100%;
 	}
+}
+.formCheckout {
+	display:  flex;
+	flex-direction: column;
+	margin-bottom: 120px;
+}
+
+.formCheckout input{
+	border-radius: 8px;
+	margin-top: 8px;
+	height: 38px;
+	width: 80%;
+}
+.formCheckout button{
+	border: 0px;
+	color: $--white;
+}
+.button-secondary {
+	border-radius: 8px;
+	margin-top: 8px;
+	margin-bottom: 12px;
+	height: 28px;
+	width: 80%;
+	background-color: $--principal-2;
+}
+.button-principal {
+	border-radius: 12px;
+	margin-top: 12px;
+	height: 50px;
+	
+	background-color: $--principal-1;
+}
+.labelCheckout {
+	display: flex;
+	flex-direction: column;
 }

@@ -1,9 +1,19 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import OrderItem from '@components/OrderItem';
-import Menu from '@components/Menu';
+import AppContext from '@context/AppContext';
+
 import styles from '@styles/Checkout.module.scss';
 
 const Checkout = () => {
+
+	const {state} = useContext(AppContext);
+
+	const sumTotal = () =>{
+		const reducer = (accumulator,currentValue) => accumulator + (currentValue.price*currentValue.cnt);
+		const sum = state.cart.reduce(reducer,0);
+		return sum;
+	}
+
 	return (
 		<div className={styles.Checkout}>
 			<div className={styles['Checkout-container']}>
@@ -14,17 +24,13 @@ const Checkout = () => {
 							<span>03.25.21</span>
 							<span>6 articles</span>
 						</p>
-						<p>$560.00</p>
+						<p defaultValue={sumTotal}></p>
 					</div>
 				</div>
-				<OrderItem />
-				<form className={styles.formCheckout}>
-				<input type="text" name='cliente' placeholder='Buscar cliente...' />
-				<button className={styles['button-secondary']} onClick={console.log('holis')}>Agregar </button>
-				<input type="date" name='fecha' />
-				<button className={styles['button-principal']} onClick={console.log('holis2')}>Finalizar venta </button>
-
-			</form>
+				{state.cart.map(product =>(
+					<OrderItem product={product} key={`orderItem-${product.id}`}/>
+				))}
+				
 			</div>
 			
 		</div>

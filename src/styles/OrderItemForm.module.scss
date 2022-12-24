@@ -1,0 +1,17 @@
+@import 'vars';
+
+
+.input-cnt{
+	width: 50px;
+	height: 25px;
+	border-radius: 8px;
+}
+.input-price{
+	width: 60px;
+	height: 25px;
+	border-radius: 8px;
+}
+.form-itemOrder{
+	display: flex;
+	flex-direction: column;
+}

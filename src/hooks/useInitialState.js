@@ -15,7 +15,21 @@ const useInitialState = () => {
 			cart: [...state.cart, payload]
 		});
 	};
-
+	const updateToCart = (payload)=>{
+		for(let i = 0; i<state.cart.length;i++){
+			if(payload.id===state.cart.id){
+				state.cart[i]=payload;
+			}
+		}
+		console.log(state.cart);
+		
+		setState(
+			{
+			...state,
+			cart:[...state.cart]
+			}
+		);
+	}
 	const removeToCart =(payload)=>{
 		setState({
 			...state,
@@ -29,6 +43,9 @@ const useInitialState = () => {
 			list: [payload]
 		});
 	};
+
+	const stateListProduct = state.list.length;
+	
 	const removeListProducts =(payload)=>{
 		setState({
 			...state,
@@ -41,7 +58,9 @@ const useInitialState = () => {
 		addToCart,
 		removeToCart,
 		addListProducts,
-		removeListProducts
+		removeListProducts,
+		updateToCart,
+		stateListProduct
 	}
 }
 

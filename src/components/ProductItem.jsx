@@ -15,11 +15,14 @@ const ProductItem = ({ product }) => {
 			<Image loader={() => product.images[0]} src={product.images[0]} alt={product.title} width="100" height="100" layout="responsive" />
 			<div className={styles['product-info']}>
 				<div>
+					
 					<p>${product.price}</p>
 					<p>{product.title}</p>
 				</div>
-				<figure onClick={() => handleClick(product)} >
+				<figure onClick={() => handleClick({...product, cnt: 1})} >
+					
 					<Image src={addToCartImage} alt="" />
+				
 				</figure>
 			</div>
 		</div>

@@ -9,7 +9,7 @@ const MyOrder = () => {
 	const {state} = useContext(AppContext);
 
 	const sumTotal = () =>{
-		const reducer = (accumulator,currentValue) => accumulator + currentValue.price;
+		const reducer = (accumulator,currentValue) => accumulator + (currentValue.price*currentValue.cnt);
 		const sum = state.cart.reduce(reducer,0);
 		return sum;
 	}
@@ -19,6 +19,7 @@ const MyOrder = () => {
 				<p className="title">My order</p>
 			</div>
 			<div className={styles['my-order-content']}>
+
 				{state.cart.map(product =>(
 					<OrderItem product={product} key={`orderItem-${product.id}`}/>
 				))}
@@ -27,10 +28,29 @@ const MyOrder = () => {
 						<span>Total</span>
 					</p>
 					<p>${sumTotal()}</p>
+					
 				</div>
-				<Link className={styles['primary-button']} href="/checkout">
-					Checkout
-				</Link>
+				
+
+				<form className={styles.formCheckout}>
+					<label className={styles.labelCheckout}>
+					Cliente
+					<input type="text" name='cliente' placeholder='Buscar cliente...' />
+					</label>
+					<button 
+						className={styles['button-secondary']} 
+						onClick={console.log('holis')}
+					>Agregar</button>
+
+					<label className={styles.labelCheckout}>
+					Fecha Entrega
+					<input type="date" name='fecha' />
+
+					</label>
+					<button className={styles['button-principal']} onClick={console.log('holis2')}>Finalizar venta </button>
+				</form>
+				
+
 			</div>
 		</aside>
 	);

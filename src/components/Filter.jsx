@@ -11,35 +11,42 @@ const API = 'https://api.escuelajs.co/api/v1/products';
 
 const Filter = () => {
 	
-	const { addListProducts } = useContext(AppContext);
+	const { addListProducts, stateListProduct } = useContext(AppContext);
 	
 
 	
 	const products = useGetProducts(API);
-	
-	const handleToggle=()=>{
+	if((stateListProduct == 0) && (products.length>0)){
 		addListProducts(products);
+		console.log("");
 	}
+	 
 	
 	const searchForName = (dat) =>{
 		let array = [];
-		let findProduct = dat.toLowerCase();
-		for(let i =0; i<products.length;i++){
-			let nomProduct = products[i].title.toLowerCase();
-			if(nomProduct.indexOf(findProduct)!==-1){
-				array.push( products[i]);
-			}
+		if(dat==""){
+			array = products;
+		}else{
+			let findProduct = dat.toLowerCase();
+			for(let i =0; i<products.length;i++){
+				let nomProduct = products[i].title.toLowerCase();
+				if(nomProduct.indexOf(findProduct)!==-1){
+					array.push( products[i]);
+				}
+			
+			}}
 		
-		}
 		addListProducts(array);
 	}
 
+	
+	
 	
 	return (
 		<nav className={styles.Filter}>
 			
 			<div className={styles['filterbar-left']}>
-				<p className={styles['filterbar-menu']} onClick={handleToggle}>Filtrar</p>
+				<p className={styles['filterbar-menu']} >Filtrar</p>
 
 				<Image src={flechita} alt="flechita" className={styles['filter-flechita']} />
 					
@@ -50,11 +57,15 @@ const Filter = () => {
 				 className={styles['input-filter']}
 				 autoComplete='false'
 				 placeholder='Buscar producto...'
-				 onChange={ev =>searchForName(ev.target.value)} />
+				 onChange={ev =>searchForName(ev.target.value)} 
+				 />
+			
 			</form>
 			</div>
-
+			
 		</nav>
+
+		
 	);
 }
 

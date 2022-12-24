@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import Filter from '@components/Filter';
 
 import AppContext from '@context/AppContext';
 import ProductItem from '@components/ProductItem';
@@ -10,6 +11,8 @@ const ProductList = () => {
 	
 	return (
 		<section className={styles['main-container']}>
+			
+			
 			
 			<div className={styles.ProductList}>
 				{ 
